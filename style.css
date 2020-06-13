@@ -1,0 +1,86 @@
+.background {
+   height: 100vh;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+.sidebar {
+   position: absolute;
+   top: 50%;
+   transform: translateY(-50%);
+   left: 0;
+   width: 300px;
+   height: 40vh;
+}
+
+.board {
+   width: 34rem;
+   height: 34rem;
+   display: grid;
+   grid-template-columns: repeat(3, 1fr);
+   grid-gap: 1rem;
+}
+.tile {
+   /* border: 1px solid #ddd; */
+   background: #ddd;
+   width: 10rem;
+   height: 10rem;
+   cursor: pointer;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+.tile:hover {
+   /* box-shadow: 0px 0px 7px #dc3545; */
+   /* box-shadow: 0px 0px 7px #007bff; */
+}
+.fa-times {
+   font-size: 8rem;
+}
+.fa-circle {
+   font-size: 6rem;
+}
+
+.player-one {
+   box-shadow: 0px 0px 7px #007bff;
+}
+.player-two {
+   box-shadow: 0px 0px 7px #dc3545;
+}
+
+.player-one-hover {
+   box-shadow: 0px 0px 7px #007bff;
+}
+.player-two-hover {
+   box-shadow: 0px 0px 7px #dc3545;
+}
+
+.overlay {
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100vw;
+   height: 100vh;
+   background: rgba(0, 0, 0, 0.75);
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: stretch;
+}
+.weapon, .enemy-weapon {
+   font-size: 12rem;
+   color: #eee;
+}
+.enemy-weapon {
+   transform: rotate(180deg);
+}
+.fa-hand-scissors {
+   transform: rotate(90deg);
+}
+.fa-hand-scissors.enemy-weapon {
+   transform: rotate(-90deg);
+}
+
+.buttons .fas {
+   font-size: 5rem;
+}

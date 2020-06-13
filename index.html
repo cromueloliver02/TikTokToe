@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+      integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+   <link rel="stylesheet" href="style.css">
+   <title>Tik Tok Toe</title>
+</head>
+
+<body>
+
+   <nav class="sidebar bg-light p-4">
+      <h2>Tik Tok Toe</h2>
+      <p class="lead">Welcome to Tik Tok Toe 😊</p>
+      <p class="lead">This game still in development but feel free to play the game while I'm still cleaning my mess
+         here. 😂</p>
+   </nav>
+
+   <div class="background bg-dark">
+
+      <div class="overlay">
+
+         <div class="buttons align-self-center">
+            <button data-weapon id="btn-scissor" class="btn btn-info btn-lg">Start Kano</button>
+         </div>
+
+         <div class="enemy d-none flex-column">
+            <div class="bg-danger mb-5 py-3">
+               <p class="lead text-white text-center m-0">Enemy</p>
+            </div>
+
+            <div class="enemyWeaponBox align-self-center mb-4"></div>
+         </div>
+
+         <div class="myWeaponBox align-self-center"></div>
+
+         <div class="me d-none">
+            <div class="bg-primary mt-5 py-3">
+               <p id="youText" class="lead text-white text-center m-0">You</p>
+            </div>
+
+         </div>
+      </div>
+
+      <div class="wrapper">
+         <div id="player-red-box" class="bg-secondary py-2">
+            <p class="lead text-white text-center m-0">Player Red</p>
+         </div>
+         <div class="board bg-white p-3">
+            <div id="top-left" class="tile vacant"></div>
+            <div id="top-mid" class="tile vacant"></div>
+            <div id="top-right" class="tile vacant"></div>
+            <div id="mid-left" class="tile vacant"></div>
+            <div id="mid-mid" class="tile vacant"></div>
+            <div id="mid-right" class="tile vacant"></div>
+            <div id="bot-left" class="tile vacant"></div>
+            <div id="bot-mid" class="tile vacant"></div>
+            <div id="bot-right" class="tile vacant"></div>
+         </div>
+         <div id="player-blue-box" class="bg-primary py-2">
+            <p class="lead text-white text-center m-0">Player Blue</p>
+         </div>
+      </div>
+
+      <div id="playerBlueKanoWinnerModal" class="modal fade modal-kano">
+         <div class="modal-dialog">
+            <div class="modal-content">
+               <div class="modal-header bg-primary px-3 py-2">
+                  <h5 class="modal-title text-white m-0">Kano Result</h5>
+               </div>
+               <div class="modal-body">
+                  <p>You won the kano, you'll get the first move.</p>
+               </div>
+               <div class="modal-footer">
+                  <button class="btn btn-primary" data-dismiss="modal">Ok</button>
+               </div>
+            </div>
+         </div>
+      </div>
+
+      <div id="playerRedKanoWinnerModal" class="modal fade modal-kano">
+         <div class="modal-dialog">
+            <div class="modal-content">
+               <div class="modal-header bg-danger px-3 py-2">
+                  <h5 class="modal-title text-white m-0">Kano Result</h5>
+               </div>
+               <div class="modal-body">
+                  <p>Your enemy won the kano, he'll get the first move.</p>
+               </div>
+               <div class="modal-footer">
+                  <button class="btn btn-primary" data-dismiss="modal">Ok</button>
+               </div>
+            </div>
+         </div>
+      </div>
+
+      <div id="tieKanoWinnerModal" class="modal fade">
+         <div class="modal-dialog">
+            <div class="modal-content">
+               <div class="modal-header bg-info px-3 py-2">
+                  <h5 class="modal-title text-white m-0">Kano Result</h5>
+               </div>
+               <div class="modal-body">
+                  <p>Its a tie, please try again.</p>
+               </div>
+               <div class="modal-footer">
+                  <button class="btn btn-primary" data-dismiss="modal">Try again</button>
+               </div>
+            </div>
+         </div>
+      </div>
+
+      <div id="playerOneWinnerModal" class="modal fade modal-result">
+         <div class="modal-dialog modal-lg">
+            <div class="modal-content bg-primary text-white">
+               <div class="modal-header">
+                  <h5 class="modal-title">Tik Tok Toe</h5>
+               </div>
+               <div class="modal-body text-center">
+                  <h1>Victory!</h1>
+                  <h2 class="display-4">Player BLUE!</h2>
+               </div>
+               <div class="modal-footer">
+                  <button class="btn btn-outline-light m-auto btn-yey" data-dismiss="modal"
+                     data-target="#playerOneWinnerModal">Yey!</button>
+               </div>
+            </div>
+         </div>
+      </div>
+
+      <div id="playerTwoWinnerModal" class="modal fade modal-result">
+         <div class="modal-dialog modal-lg">
+            <div class="modal-content bg-danger text-white">
+               <div class="modal-header">
+                  <h5 class="modal-title">Tik Tok Toe</h5>
+               </div>
+               <div class="modal-body text-center">
+                  <h1>Defeat!</h1>
+                  <h2 class="display-4">Player RED!</h2>
+               </div>
+               <div class="modal-footer">
+                  <button class="btn btn-outline-light m-auto btn-yey" data-dismiss="modal"
+                     data-target="#playerTwoWinnerModal">Awts!</button>
+               </div>
+            </div>
+         </div>
+      </div>
+
+      <div id="tieModal" class="modal fade modal-result">
+         <div class="modal-dialog modal-lg">
+            <div class="modal-content bg-info text-white">
+               <div class="modal-header">
+                  <h5 class="modal-title">Try Again!</h5>
+               </div>
+               <div class="modal-body text-center">
+                  <h1>Tie!</h1>
+                  <h2 class="display-4">Its a Tie!</h2>
+               </div>
+               <div class="modal-footer">
+                  <button class="btn btn-outline-light m-auto btn-yey" data-dismiss="modal"
+                     data-target="#playerTwoWinnerModal">Ok</button>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"></script>
+   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"></script>
+   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+      integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+      crossorigin="anonymous"></script>
+   <script src="./app.js"></script>
+</body>
+
+</html>
