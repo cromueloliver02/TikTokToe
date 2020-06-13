@@ -10,7 +10,7 @@
    transform: translateY(-50%);
    left: 0;
    width: 300px;
-   height: 40vh;
+   height: 53vh;
 }
 
 .board {
@@ -83,4 +83,60 @@
 
 .buttons .fas {
    font-size: 5rem;
+}
+
+@media(max-width: 768px) {
+   .sidebar {
+      position: absolute;
+      top: 0;
+      transform: translateY(0px);
+      left: 10%;
+      width: 80%;
+      height: auto;
+      padding: 1rem;
+   }
+
+   .board {
+      margin-top: 40rem;
+      width: 19rem;
+      height: 19rem;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 1rem;
+   }
+   .tile {
+      /* border: 1px solid #ddd; */
+      background: #ddd;
+      width: 5rem;
+      height: 5rem;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+   }
+
+   .fa-times {
+      font-size: 5rem;
+   }
+   .fa-circle {
+      font-size: 3rem;
+   }
+}
+
+@media(max-width: 676px) {
+   .board {
+      margin-top: 27rem;
+      width: 19rem;
+      height: 19rem;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 1rem;
+   }
+
+   .fa-times {
+      font-size: 4.5rem;
+   }
+   .fa-circle {
+      font-size: 2.5rem;
+   }
 }
