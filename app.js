@@ -513,6 +513,7 @@ $(".modal-result, #tieKanoWinnerModal").on("hidden.bs.modal", function () {
 $(".modal-kano").on("hidden.bs.modal", function () {
    UI.hideKano();
 });
+
 $("#playerRedKanoWinnerModal").on("hidden.bs.modal", function () {
    Board.randomlyOccupyATile();
 });
